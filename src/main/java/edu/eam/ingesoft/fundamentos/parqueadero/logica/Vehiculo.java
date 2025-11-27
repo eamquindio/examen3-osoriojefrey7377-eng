@@ -5,7 +5,7 @@ package edu.eam.ingesoft.fundamentos.parqueadero.logica;
  * El vehículo es responsable de conocer su tarifa según su tipo.
  */
 public class Vehiculo {
-
+    
     // ==================== ATRIBUTOS ====================
 
     private String placa;
@@ -26,6 +26,12 @@ public class Vehiculo {
      */
     public Vehiculo(String placa, int modelo, String color, Propietario propietario, String tipo) {
         // TODO: Implementar constructor
+        this.placa=placa;
+        this.modelo=modelo;
+        this.color=color;
+        this.propietario=propietario;
+        this.tipo=tipo;
+
     }
 
     // ==================== GETTERS ====================
@@ -76,6 +82,15 @@ public class Vehiculo {
      */
     public double obtenerTarifaHora() {
         // TODO: Implementar método usando switch
+        switch (tipo){
+            case "SEDAN":
+                return 1500;
+                case "SUV":
+                    return 2300;
+                    case "CAMION":
+                        return 3000;
+                        
+        }
         return 0;
     }
 }

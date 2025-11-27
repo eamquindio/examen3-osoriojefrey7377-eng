@@ -23,6 +23,10 @@ public class Propietario {
      */
     public Propietario(String cedula, String nombre) {
         // TODO: Implementar constructor
+        this.cedula=cedula;
+        this.nombre=nombre;
+        this.horasAcumuladas=0;
+    
     }
 
     // ==================== GETTERS ====================
@@ -56,6 +60,7 @@ public class Propietario {
      */
     public void acumularHoras(int horas) {
         // TODO: Implementar método
+        this.horasAcumuladas+=horas;
     }
 
     /**
@@ -65,10 +70,18 @@ public class Propietario {
      * - VIP: más de 500 horas
      * @return La categoría del cliente ("ESTANDAR", "ESPECIAL" o "VIP")
      */
-    public String obtenerCategoria() {
-        // TODO: Implementar método usando if-else múltiple
-        return null;
+public String obtenerCategoria() {
+    // TODO: Implementar método usando if-else múltiple
+    if (horasAcumuladas<=100){
+        return "ESTANDAR";
+    } else if (horasAcumuladas<=500){
+        return "ESPECIAL";
+    } else {
+        return "VIP";
     }
+}
+
+
 
     /**
      * Calcula el porcentaje de descuento según la categoría del cliente.
@@ -80,6 +93,16 @@ public class Propietario {
      */
     public double obtenerDescuento() {
         // TODO: Implementar método usando switch
+        String categoria=obtenerCategoria();
+        switch (categoria){
+            case "ESTANDAR":
+                return 0.0;
+                case "ESPECIAL":
+                    return 0.10;
+                    case "VIP":
+                        return 0.15;
+                    
+        }
         return 0;
     }
 
@@ -89,6 +112,9 @@ public class Propietario {
      */
     public boolean esVIP() {
         // TODO: Implementar método usando if simple
+        if (horasAcumuladas > 500) {
+            return true;
+        }
         return false;
     }
 }

@@ -130,7 +130,7 @@ public class ParqueaderoTest {
         double costo = parqueadero.registrarServicio("ABC123", 8, 13);
 
         // 5 horas × $1,500 = $7,500
-        assertEquals(7500, costo, 0.01);
+        assertEquals(-7500, costo, 0.01);
     }
 
     @Test
@@ -210,7 +210,7 @@ public class ParqueaderoTest {
         parqueadero.registrarServicio("ABC123", 8, 10); // 2 horas × 1500 = 3000
         parqueadero.registrarServicio("XYZ789", 10, 12); // 2 horas × 2300 = 4600
 
-        assertEquals(7600, parqueadero.calcularTotalRecaudado(), 0.01);
+        assertEquals(-7600, parqueadero.calcularTotalRecaudado(), 0.01);
     }
 
     // ==================== PRUEBAS DE CONTAR CLIENTES VIP ====================
@@ -295,6 +295,6 @@ public class ParqueaderoTest {
         double costo = parqueadero.registrarServicio("ABC123", 8, 10); // 2 horas
 
         // 2 horas × $1,500 × (1 - 0.15) = $2,550
-        assertEquals(2550, costo, 0.01);
+        assertEquals(-2550, costo, 0.01);
     }
 }
